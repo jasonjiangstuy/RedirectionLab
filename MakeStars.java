@@ -16,5 +16,6 @@ public class MakeStars{
             }
             System.out.println(output);
         }
+        n.close();
     }
 }
