@@ -4,7 +4,9 @@ public class PigLatin {
     }
 
     public static String pigLatinSimple(String s){//Given a single word of at least 1 character:
+        s.toLowerCase();
         // if (s.length() >= 1){ 
+
             if (s.charAt(0) == 'a'|| s.charAt(0) == 'e'|| s.charAt(0) == 'i'|| s.charAt(0) == 'o'|| s.charAt(0) == 'u'){
                 s += "hay";
             }
@@ -15,10 +17,11 @@ public class PigLatin {
             }
             
         // }
-        s.toLowerCase();
+
         return s;
     }
     public static String pigLatin(String s){
+        s.toLowerCase();
         //Words that start with any digraph (list included for your convenience) move the first two letters to the end, and add 'ay'
         String[] Digraph = {"bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr"};
         boolean wasEdited = false;
@@ -42,5 +45,24 @@ public class PigLatin {
             s += "ay";
         }
         return s;
+    }
+
+    public static String pigLatinBest(String s){
+        s.toLowerCase();
+        if (97 <= (int)s.charAt(0) && (int)s.charAt(0) <= 122){ // if first char is a letter
+            if ((!(97 <= (int)s.charAt(s.length() - 1) && (int)s.charAt(s.length() - 1) <= 122)) && (!(48 <= (int)s.charAt(s.length() - 1) && (int)s.charAt(s.length() - 1) <= 57))){
+                //not a letter or number
+                char hold = s.charAt(s.length() - 1);
+                s = s.substring(0, s.length() - 1);
+                s = pigLatin(s);
+                s += hold;
+            }
+            else{
+                s = pigLatin(s);
+            }
+        }
+        // else do nothing
+        return s;
+            
     }
 }

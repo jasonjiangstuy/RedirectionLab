@@ -16,5 +16,15 @@ public class Tester {
                 System.out.println("false" + PigLatin.pigLatin(ok1[i]));
             }
         }
+        String[] final1 = {"*emu", "4chan", "fish!", "fish", "the.", "cat!", "amazing?", "apple%"};
+        String[] final2 = {"*emu", "4chan", "ishfay!","ishfay", "ethay.", "atcay!", "amazinghay?", "applehay%"};
+        for (int i = 0; i < final1.length; i ++){
+            if (PigLatin.pigLatinBest(final1[i]).equals(final2[i])){
+                System.out.println("true");    
+            }
+            else{
+                System.out.println("false" + PigLatin.pigLatinBest(final1[i]));
+            }
+        }
     }
 }
