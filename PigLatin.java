@@ -10,7 +10,7 @@ public class PigLatin {
             }
             else{
                 s += s.charAt(0);
-                s = s.substring(0, 1);
+                s = s.substring(1, s.length());
                 s += "ay";
             }
             
